@@ -1,11 +1,15 @@
+import java.util.Calendar;
+
 public class Main {
 
     public static void searchLeapYear(int year){
-        if (year % 4 == 0){
-            System.out.println(year + " - високосный год");
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, year);
+        if (cal.getActualMaximum(Calendar.DAY_OF_YEAR) > 365){
+            System.out.println(year + " - leap year");
         }
         else{
-            System.out.println(year + " - не високосный год");
+            System.out.println(year + " - do not leap year");
         }
     }
 
@@ -32,7 +36,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-        searchLeapYear(2000);
+        searchLeapYear(1700);
         optimizationPhone(1,2005);
         int deliveryDistance = 95;
         searchDeliveryTime(deliveryDistance);
